@@ -1,0 +1,177 @@
+@use 'sass:map'
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel'
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default'
+
+$breakpoints-sm: 576px
+$breakpoints-md: 768px
+$breakpoints-lg: 992px
+$breakpoints-xl: 1200px
+$breakpoints-xxl: 1400px
+
+@mixin mediaQuery($query)
+    $queries: ()
+    $queries: map.merge($queries, (xs: '(max-width: #{$breakpoints-sm})'))
+    $queries: map.merge($queries, (sm: '(min-width: #{$breakpoints-sm}) and (max-width: #{$breakpoints-md})'))
+    $queries: map.merge($queries, (md: '(min-width: #{$breakpoints-md}) and (max-width: #{$breakpoints-lg})'))
+    $queries: map.merge($queries, (lg: '(min-width: #{$breakpoints-lg}) and (max-width: #{$breakpoints-xl})'))
+    $queries: map.merge($queries, (xl: '(min-width: #{$breakpoints-xl}) and (max-width: #{$breakpoints-xxl})'))
+    $queries: map.merge($queries, (xxl: '(min-width: #{$breakpoints-xxl})'))
+
+    @if map.has-key($queries, $query)
+        $query-value: map.get($queries, $query)
+
+        @media #{$query-value}
+            @content
+    @else
+        @warn 'Invalid media query: #{$query}.'
+
+.sidenav
+    @media ( max-width:  767.98px)
+        padding-top: 1.5rem
+        padding-bottom: 1.5rem
+
+    nav
+        @media ( max-width:  767.98px)
+            position: relative!important
+
+        .logo-container
+            margin-bottom: 10vh
+            // padding-left: 40px
+            padding-top: 40px
+            display: flex
+            justify-content: center
+            vertical-align: middle
+
+            @media ( max-width:  767.98px)
+                margin-bottom: 1.5rem
+                padding: 0px
+                // justify-content: center
+
+            .logo-image-container
+                width: 4rem
+
+            .logo-title
+                color: white
+                margin: 0px
+                margin-left: 1rem
+                font-size: 1.7rem
+                padding: 0px
+                align-self: center
+
+        ul
+            margin-bottom: 0px
+            padding-left: 20px
+
+            @media ( max-width:  767.98px)
+                padding: 0px
+                display: flex
+                justify-content: space-around
+
+            a
+                line-height: 24px
+                font-size: 17px
+                display: block
+                color: white
+                text-decoration: none
+                text-transform: capitalize
+
+                @media ( max-width:  767.98px)
+                    display: inline-block
+
+                li
+                    list-style: none
+                    position: relative
+                    padding-top: 10px
+                    padding-bottom: 10px
+                    padding-left: 40px
+
+                    @media ( max-width:  767.98px)
+                        background-color: #5e5e5e
+                        border-radius: 90px
+                        padding: 10px
+
+                    .sidenav-icon
+                        color: white
+                        display: inline-flex
+                        vertical-align: top
+                        padding-right: 40px
+
+                        @media ( max-width:  767.98px)
+                            padding-right: 10px
+
+            a.active
+                color: #007EA7
+
+                li
+                    background-color: white
+                    border-top-left-radius: 90px
+                    border-bottom-left-radius: 90px
+
+                    @media ( max-width:  767.98px)
+                        border-radius: 90px
+
+                        &:before, &:after
+                            display: none
+
+                    .sidenav-icon
+                        color: #007EA7
+
+                    &:before, &:after
+                        content: ""
+                        width: 20px
+                        height: 20px
+                        z-index: 11
+                        right: 0px
+                        // background-color: white
+                        position: absolute
+
+                    &:before
+                        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M 0 0 C 10 0 20 10 20 20 L 20 0 Z" /></svg>')
+                        bottom: -20px
+
+                    &:after
+                        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path fill="white" d="M 0 20 C 10 20 20 10 20 0 L 20 20 Z" /></svg>')
+                        top: -20px
+
+.main-card
+    border-radius: 35px
+    min-height: 85vh
+    box-shadow: none
+
+    @media ( max-width:  767.98px)
+        border-radius: 15px
+        margin-bottom: 1.5rem
+
+    .card-title-group
+        display: flex
+        align-items: center
+
+        @media ( max-width:  767.98px)
+            padding-bottom: 1.5rem
+
+        .card-title
+            display: flex
+            text-transform: capitalize
+            margin-bottom: 0px
+
+        button
+            background-color: #FB6D3A
+            border: none
+            border-radius: 1rem
+            width: 3rem
+            height: 3rem
+
+            &:focus
+                outline: none
+
+            &:active
+                border: none
+                border-color: none
+
+            .mat-icon
+                display: flex
+                justify-content: center
+                align-items: center
+                color: white
+                width: 100%
+                height: 100%

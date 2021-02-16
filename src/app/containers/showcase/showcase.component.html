@@ -1,0 +1,18 @@
+<div class="row main">
+  <!-- <div> -->
+  <!-- <app-carousel></app-carousel> -->
+  <!-- </div> -->
+  <div>
+    <ngx-masonry [ordered]="true" [options]="masonryOptions" class="gallery-container">
+      <div ngxMasonryItem class="col-md-4 col-12 masonry" *ngFor="let i of masonryItems"
+        (click)="handleGalleryClick(i)">
+        <app-gallery-item (layout)="layout()" [galleryDetail]="i"></app-gallery-item>
+      </div>
+    </ngx-masonry>
+    <div style="position: relative;">
+      <ngx-ui-loader [hasProgressBar]="false" [fgsType]="'cube-grid'" [fgsSize]="40" [loaderId]="'getGalleryLoader'">
+      </ngx-ui-loader>
+    </div>
+  </div>
+</div>
+<app-gallery-modal #modal></app-gallery-modal>

@@ -1,0 +1,56 @@
+<div ngxUiLoaderBlurred>
+  <div class="container-fluid p-md-5 pb-md-0 pb-0 pt-md-4">
+    <div class="row g-0">
+      <div class="sidenav col-md-3">
+        <div class="row">
+          <nav class="col-md-3 position-fixed">
+            <div class="logo-container">
+              <div class="ratio ratio-1x1 logo-image-container">
+                <img src="../assets/images/logo.webp" class="logo-image" alt="" />
+              </div>
+              <h1 class="logo-title">SMK Muh 2 Moyudan</h1>
+            </div>
+            <ul>
+              <a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+                <li>
+                  <mat-icon class="sidenav-icon" aria-hidden="false" aria-label="Showcase">video_library</mat-icon>
+                  Showcase
+                </li>
+              </a>
+              <a [routerLink]="['/upload']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+                <li>
+                  <mat-icon class="sidenav-icon" aria-hidden="false" aria-label="Upload">upload</mat-icon>
+                  Upload
+                </li>
+              </a>
+              <a *ngIf="showPreviewNav" [routerLink]="['/preview']" [routerLinkActive]="['active']">
+                <li>
+                  <mat-icon class="sidenav-icon" aria-hidden="false" aria-label="Preview">preview</mat-icon>
+                  Preview
+                </li>
+              </a>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <mat-card class="main-card mb-0 p-md-5">
+          <mat-card-title-group class="card-title-group">
+            <mat-card-title class="card-title">{{
+              header_title$
+              }}</mat-card-title>
+
+            <button mat-icon-button aria-label="Contact Info" (click)="openBottomSheet()">
+              <mat-icon>contact_support</mat-icon>
+            </button>
+          </mat-card-title-group>
+          <mat-card-content class="pt-md-4">
+            <router-outlet> </router-outlet>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-ui-loader [text]="loader_text$"></ngx-ui-loader>
+<!-- <ngx-ui-loader [text]="loader_text$" [loaderId]="'http-loader'"></ngx-ui-loader> -->

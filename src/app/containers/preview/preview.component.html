@@ -1,0 +1,96 @@
+<mat-card *ngIf="videoDetail.status" class="mat-card">
+  <div class="">
+    <div class="ratio ratio-16x9 video-preview-container">
+      <video [src]="videoDetail.data.video.url" #videoPreviewPlayer controls>
+        Your browser does not support HTML video.
+      </video>
+    </div>
+    <div class="share-button-container">
+      <div class="share-button-clild-container">
+        <div class="share-button-child">
+          <button
+            (click)="handleShareButton('whatsapp')"
+            title="Share to WhatsApp status."
+            mat-icon-button
+          >
+            <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+          </button>
+          <button
+            (click)="handleShareButton('facebook')"
+            title="Share to Facebook."
+            mat-icon-button
+          >
+            <ion-icon class="share-icon" name="logo-facebook"></ion-icon>
+          </button>
+          <!-- <button
+            (click)="handleShareButton('instagram')"
+            title="Share to Instagram."
+            mat-icon-button
+          >
+            <ion-icon class="share-icon" name="logo-instagram"></ion-icon>
+          </button> -->
+          <button
+            (click)="handleShareButton('twitter')"
+            mat-icon-button
+            title="Share to Twitter."
+          >
+            <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+          </button>
+          <button
+            (click)="handleShareButton('copy-link')"
+            mat-icon-button
+            title="Copy link."
+          >
+            <ion-icon
+              #copyLink
+              class="share-icon"
+              name="link-outline"
+            ></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <mat-card-content>
+    <div class="row justify-content-center pt-1">
+      <p class="h5 text-center mb-0">{{ videoDetail.data.title }}</p>
+      <p class="text-center">
+        {{ videoDetail.data.created_at | date: "HH:mm:ss - dd MMMM y" }}
+      </p>
+      <!-- <div class="col-md-8">
+        <mat-form-field [appearance]="'outline'" class="mat-input">
+          <mat-label>Title</mat-label>
+          <input matInput disabled [value]="title" />
+          <mat-icon matPrefix>title</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field [appearance]="'outline'" class="mat-input">
+          <mat-label>Uploaded At</mat-label>
+          <input
+            matInput
+            disabled
+            [value]="created_at | date: 'HH:mm:ss - dd MMMM y'"
+          />
+          <mat-icon matPrefix>calendar_today</mat-icon>
+        </mat-form-field>
+      </div> -->
+
+      <div class="col-md-6">
+        <mat-form-field [appearance]="'outline'" class="mat-input">
+          <mat-label>Name</mat-label>
+          <input matInput disabled [value]="videoDetail.data.name" />
+          <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field [appearance]="'outline'" class="mat-input">
+          <mat-label>School</mat-label>
+          <input matInput disabled [value]="videoDetail.data.school" />
+          <mat-icon matPrefix>school</mat-icon>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,66 @@
+@import '~@angular/material/theming'
+
+$input-primary: #007EA7
+
+.mat-card
+    box-shadow: none
+
+.video-preview-container
+    border-bottom-style: solid
+    border-bottom-color: #FB6D3A
+    border-bottom-width: 5px
+
+.share-button-container
+    position: relative
+    top: -23px
+    display: flex
+    justify-content: center
+    .share-button-clild-container
+        background-color: #ffe8e0
+        border-radius: 90px
+
+    button
+        background-color: #FB6D3A
+
+    button:focus
+        outline: none
+
+    .share-button-child
+        display: inline-block
+
+        button
+            cursor: pointer
+            margin: auto 10px
+            background: none
+
+            .share-icon
+                position: relative
+                top: -1px
+                font-size: 24px
+                color: #131418
+                pointer-events: none
+
+                &[name="logo-whatsapp"]
+                    color: #25D366
+                &[name="logo-facebook"]
+                    color: #3b5999
+                &[name="logo-twitter"]
+                    color: #55acee
+                &[name="logo-instagram"]
+                    color: #e4405f
+
+::ng-deep .mat-form-field-outline
+    color: $input-primary!important
+
+::ng-deep .mat-form-field
+    .mat-icon
+        color: black
+        padding-right: 2rem
+    .mat-input-element:disabled
+        color: black
+    mat-label
+        color: black
+
+.mat-input
+    width: 100%
+    color: $input-primary

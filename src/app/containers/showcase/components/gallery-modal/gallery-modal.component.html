@@ -1,0 +1,39 @@
+<ng-template #modal>
+  <div class="gallery-container">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6 gallery-image-container">
+          <div class="">
+            <img [defaultImage]="'https://drive.google.com/thumbnail?id='+data.content.id"
+              [lazyLoad]="apiURL + '/assets/'+data.content.id" (click)="handleImageClick()"
+              class="gallery-image img-fluid" alt="" />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail">
+            <div>
+              <p class="h4">Name: {{ data.content.title }}</p>
+              <div class="description">
+                <p class="h5">Description:</p>
+                <p>
+                  {{ data.content.description }}
+                </p>
+              </div>
+            </div>
+            <div class="uploader">
+              <p>
+                <span class="h6">{{ data.uploader.name }}</span> .
+                <span>{{ data.created_at | date: "HH:mm:ss - dd/MM/y" }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div (click)="handleImageClose()" id="modalZoomer" class="modalZoomer">
+    <span class="close">&times;</span>
+    <img class="modalZoomer-content" id="modalZoomerImg" />
+  </div>
+</ng-template>

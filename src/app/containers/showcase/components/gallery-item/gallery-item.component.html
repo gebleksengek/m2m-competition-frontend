@@ -1,0 +1,24 @@
+<div class="p-md-2 pt-2 pb-2">
+  <mat-card class="gallery-card">
+    <div class="gallery-image-container">
+      <img (load)="layout.emit()" masonryLazy loading="lazy" width="auto" height="auto" mat-card-image
+        [defaultImage]="'https://drive.google.com/thumbnail?id='+galleryDetail.content.id"
+        [lazyLoad]="apiURL +'/assets/' + galleryDetail.content.id" class="gallery-image"
+        alt="{{ galleryDetail.content.title }}" />
+      <div>
+        <p class="h6">
+          {{ galleryDetail.content.title }}
+        </p>
+      </div>
+    </div>
+    <mat-card-header class="header-container">
+      <div [ngStyle]="{
+          'background-image': 'url(' + galleryDetail.uploader.profileImageUrl +')'
+        }" mat-card-avatar class="uploader-image-avatar"></div>
+      <mat-card-title>{{ galleryDetail.uploader.name }}</mat-card-title>
+      <mat-card-subtitle>{{
+        galleryDetail.created_at | date: "HH:mm:ss - dd/MM/y"
+        }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>

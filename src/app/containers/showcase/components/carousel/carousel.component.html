@@ -1,0 +1,30 @@
+<div id="videoCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div #caroselItemContainer class="carousel-inner">
+    <div *ngFor="let i of carouselItems" class="carousel-item">
+      <div class="ratio ratio-16x9">
+        <video [src]="i.content.url" controls>
+          Your browser does not support HTML video.
+        </video>
+        <!-- <iframe allowfullscreen [src]="i.content.url"></iframe> -->
+      </div>
+    </div>
+  </div>
+  <a
+    class="carousel-control-prev"
+    href="#videoCarousel"
+    role="button"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#videoCarousel"
+    role="button"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>

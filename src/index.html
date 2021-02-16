@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>SMK Muhammadiyah 2 Moyudan</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="SMK Muhammadiyah 2 Moyudan">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="preconnect" href="https://api2.m2mcontest.smkmuh2moyudansleman.sch.id" />
+  <link rel="preconnect" href="https://docs.google.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" rel="stylesheet" />
+</head>
+
+<body class="mat-typography">
+  <main>
+    <app-root></app-root>
+  </main>
+  <footer class="footer-copyleft">
+    <p>
+      <a rel="noreferrer" href="https://github.com/gebleksengek/m2m-competition-frontend/blob/master/LICENSE"
+        target="_blank">
+        Copyleft
+      </a>
+      <span class="copy-left">&copy;</span>
+      <span id="year"></span>
+      <a rel="noreferrer" href="https://smkmuh2moyudansleman.sch.id/" target="_blank">
+        SMK Muh 2 Moyudan.
+      </a>
+    </p>
+    <p>
+      Made with <span style="color: #e25555;">❤</span>
+      <a rel="noreferrer" href="https://github.com/gebleksengek" target="_blank">
+        gebleksengek
+      </a>
+    </p>
+  </footer>
+</body>
+
+<script>
+  const year = document.getElementById("year");
+  year.innerText = (new Date()).getFullYear();
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+
+</html>

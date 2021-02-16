@@ -1,0 +1,123 @@
+<form [formGroup]="uploadForm" novalidate (ngSubmit)="onSubmit()">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name" />
+        <mat-icon matPrefix>person</mat-icon>
+
+        <mat-error *ngIf="errorHandling('name')">
+          {{
+          errorHandling("name", "required")
+          ? "Nama tidak boleh kosong!"
+          : errorHandling("name", "minlength")
+          ? "Nama minimal 3 karakter!"
+          : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>School Name</mat-label>
+        <input matInput placeholder="School Name" formControlName="school" />
+        <mat-icon matPrefix>school</mat-icon>
+        <mat-error *ngIf="errorHandling('school')">
+          {{
+          errorHandling("school", "required")
+          ? "Nama sekolah tidak boleh kosong!"
+          : errorHandling("school", "minlength")
+          ? "Nama sekolah minimal 8 karakter!"
+          : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>E-mail</mat-label>
+        <input matInput type="email" placeholder="E-mail" formControlName="email" />
+        <mat-icon matPrefix>email</mat-icon>
+        <mat-error *ngIf="errorHandling('email')">
+          {{
+          errorHandling("email", "required")
+          ? "Email tidak boleh kosong!"
+          : errorHandling("email", "pattern")
+          ? "Format email tidak valid!"
+          : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Phone Number</mat-label>
+        <input matInput placeholder="Phone Number" formControlName="phone" />
+        <mat-icon matPrefix>phone</mat-icon>
+        <mat-error *ngIf="errorHandling('phone')">
+          {{
+          errorHandling("phone", "required")
+          ? "Nomor ponsel tidak boleh kosong!"
+          : errorHandling("phone", "phonenumber")
+          ? "Nomor ponsel harus berformat region Indonesia!"
+          : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline" class="mat-input">
+        <mat-label>Video Title</mat-label>
+        <input matInput placeholder="Video Title" formControlName="title" />
+        <mat-icon matPrefix>title</mat-icon>
+        <mat-error *ngIf="errorHandling('title')">
+          {{
+          errorHandling("title", "required") ? "Title tidak boleh kosong" : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field (click)="videoFileInput.openFilePicker()" appearance="outline" class="mat-input">
+        <mat-label>Video File</mat-label>
+        <ngx-mat-file-input #videoFileInput [accept]="'video/mp4'" formControlName="video">
+        </ngx-mat-file-input>
+        <mat-icon matPrefix>video_library</mat-icon>
+        <mat-error *ngIf="errorHandling('video')">
+          {{
+          errorHandling("video", "required")
+          ? "Video tidak boleh kosong!"
+          : errorHandling("video", "extension")
+          ? 'Video harus berformat "mp4"!'
+          : errorHandling("video", "mimetype")
+          ? 'Video harus memiliki mimetype "video/mp4"!'
+          : errorHandling("video", "maxsize")
+          ? "Ukuran video tidak boleh lebih dari 500MB"
+          : ""
+          }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="pt-3 col-12 col-md-4 center">
+      <button mat-raised-button type="submit" color="primary" style="width: 100%">
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+<div class="col-12 pt-4">
+  <mat-card class="mat-card-spec">
+    <mat-card-header>
+      <mat-card-title>
+        <p class="h6">Ketentuan video yang diupload:</p>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <ul>
+        <li>Video harus berformat "mp4"</li>
+        <li>Video harus bermimetype "video/mp4"</li>
+        <li>Ukuran video tidak boleh lebih dari 500MB</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
